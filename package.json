@@ -1,0 +1,14 @@
+{
+  "name": "React_BoilerPlate",
+  "version": "1.0.0",
+  "description": "The boiler plate code containing basic configurations to build large scale",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mayanksharma18/React_BoilerPlate.git"
+  },
+  "license": "MIT",
+  "devDependencies": {
+    "webpack": "^4.41.5"
+  }
+}
