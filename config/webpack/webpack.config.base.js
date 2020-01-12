@@ -33,7 +33,8 @@ module.exports = {
       APP_NAME: JSON.stringify(process.env.npm_package_name),
       APP_VERSION: JSON.stringify(process.env.npm_package_version),
       WEBAPP_VERSION: JSON.stringify('1.0'),
-    }) 
+    }) ,
+    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
   ]
 };
 // function templateContent() {
