@@ -11,6 +11,7 @@ module.exports = merge(baseConfig,{
         }),
       ],
       devServer: {
+        compress: true,
         inline: true,
         contentBase: './build',
         port: '3007',

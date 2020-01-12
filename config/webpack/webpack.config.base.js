@@ -1,6 +1,6 @@
 const webpack = require('webpack');
-const path = require('path');
-const fs = require('fs');
+// const path = require('path');
+// const fs = require('fs');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const paths = require('./paths');
