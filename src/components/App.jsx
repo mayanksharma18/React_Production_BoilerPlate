@@ -1,7 +1,8 @@
 import React from "react";
+import styles from './style.scss';
 
 const App = () => {
-    return <h1>Hello</h1>;
+    return <div className={styles.box}><h1 >Hello</h1></div>;
 }
 
 export default App;

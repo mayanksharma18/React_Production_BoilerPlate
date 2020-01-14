@@ -12,36 +12,35 @@ module.exports = [
   },
   {
     test: /\.css$/,
-    use: [
-      'style-loader',
-      {
-        loader: 'css-loader',
-        options: {
-          importLoaders: 1
-        }
-      },
-      'postcss-loader'
-    ],
-    exclude: /\.module\.css$/
+    include: /node_modules/,
+    loaders: ['style-loader', 'css-loader']
   },
   {
     test: /\.scss$/,
-    use: ['style-loader', 'css-loader', 'sass-loader']
-  },
-  {
-    test: /\.css$/,
+    exclude: /node_modules/,
     use: [
-      'style-loader',
+      {
+        loader: 'style-loader'
+      },
       {
         loader: 'css-loader',
         options: {
-          importLoaders: 1,
-          modules: true
+          sourceMap: true,
+          modules: {
+            localIdentName: '[name]_[local]__[hash:base64:5]'
+          }
         }
       },
-      'postcss-loader'
-    ],
-    include: /\.module\.css$/
+      {
+        loader: 'sass-loader',
+        options: {
+          sourceMap: true
+        }
+      },
+      {
+        loader: 'postcss-loader'
+      }
+    ]
   },
   {
     test: /\.(jpe?g|png|gif|woff|woff2|eot|ttf|svg)(\?[a-z0-9=.]+)?$/,

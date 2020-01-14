@@ -5,5 +5,11 @@
   ],
   "plugins": [
     "@babel/plugin-proposal-class-properties",
+    [
+      "babel-plugin-root-import", // plugin to add the opportunity to use import and require with root based paths.
+      {
+        "rootPathSuffix": "src"
+      }
+    ]
   ]
 }

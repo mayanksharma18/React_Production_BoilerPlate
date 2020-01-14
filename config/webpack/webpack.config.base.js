@@ -1,10 +1,8 @@
 const webpack = require('webpack');
-// const path = require('path');
-// const fs = require('fs');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-
 const paths = require('./paths');
 const rules = require('./rules');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+
 
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: './public/index.html',
@@ -19,11 +17,11 @@ module.exports = {
     publicPath: '/',
     filename: 'bundle.js'
   },
+  resolve: {
+    extensions: ['.js', '.jsx', '.css', '.scss'],
+  },
   module: {
     rules
-  },
-  resolve: {
-    extensions: ['*', '.js', '.jsx', '.json', '.sass', '.css', '.scss']
   },
   node: { fs: 'empty' },
   plugins: [
@@ -37,11 +35,3 @@ module.exports = {
     new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
   ]
 };
-// function templateContent() {
-//   // console.log(path.resolve(process.cwd(), '../../public/index.html'));
-//   const html = fs.readFileSync(
-//     path.resolve(process.cwd(), '../../public/index.html'),
-//   ).toString();
-// //  console.log(html)
-//   return html;
-// }
