@@ -11,8 +11,9 @@ module.exports = merge(baseConfig,{
         }),
       ],
       devServer: {
+        historyApiFallback: true,
         compress: true,
         static: './build',
-        port: '3007',
+        port: '3000',
       },
 })

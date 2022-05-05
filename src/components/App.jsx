@@ -1,8 +1,19 @@
 import React from "react";
-import styles from './style.scss';
+import { useMsal } from "@azure/msal-react";
+import { useIsAuthenticated } from "@azure/msal-react";
+import { useNavigate } from "react-router-dom";
+import { handleLogin } from "../utils/azureAD";
+import Dashboard from "./Dashboard/Dashboard";
 
 const App = () => {
-    return <div className={styles.box}><h1 >Hello</h1></div>;
-}
+  const { instance } = useMsal();
+  const isAuthenticated = useIsAuthenticated();
+  const navigate = useNavigate();
+  if (isAuthenticated) {
+    navigate("/dashboard");
+    return null;
+  }
+  return <button onClick={() => handleLogin(instance, "popup")}>Login</button>;
+};
 
 export default App;
