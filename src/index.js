@@ -1,13 +1,9 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { createRoot } from 'react-dom/client';
 import { Provider } from 'react-redux';
 import App from './components/App';
 import store from './redux/store/configureStore';
 
-const mountNode = document.getElementById('root');
-ReactDOM.render(
-  <Provider store={store}>
-    <App />
-  </Provider>,
-  mountNode
-);
+const container = document.getElementById('root');
+const root = createRoot(container);
+root.render(<Provider store={store}><App tab="home" /> </Provider>);

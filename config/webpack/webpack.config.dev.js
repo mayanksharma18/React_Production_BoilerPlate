@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const merge = require('webpack-merge');
+const { merge } = require('webpack-merge');
 const baseConfig = require('./webpack.config.base');
 
 module.exports = merge(baseConfig,{
@@ -12,8 +12,7 @@ module.exports = merge(baseConfig,{
       ],
       devServer: {
         compress: true,
-        inline: true,
-        contentBase: './build',
+        static: './build',
         port: '3007',
       },
 })

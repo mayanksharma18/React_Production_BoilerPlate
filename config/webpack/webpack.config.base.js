@@ -1,6 +1,7 @@
 const webpack = require('webpack');
 const paths = require('./paths');
 const rules = require('./rules');
+const ESLintPlugin = require('eslint-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 
@@ -23,7 +24,6 @@ module.exports = {
   module: {
     rules
   },
-  node: { fs: 'empty' },
   plugins: [
     new webpack.EnvironmentPlugin(['NODE_ENV']),
    HtmlWebpackPluginConfig,
@@ -32,6 +32,6 @@ module.exports = {
       APP_VERSION: JSON.stringify(process.env.npm_package_version),
       WEBAPP_VERSION: JSON.stringify('1.0'),
     }) ,
-    new webpack.ContextReplacementPlugin(/moment[\/\\]locale$/, /en/),
+    new ESLintPlugin({}),
   ]
 };
