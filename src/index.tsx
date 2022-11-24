@@ -4,6 +4,8 @@ import { Provider } from 'react-redux';
 import App from './components/App';
 import store from './redux/store/configureStore';
 
-const container = document.getElementById('root');
+const input = document.getElementById('root');
+
+const container: HTMLElement = input as HTMLElement; // type assertion
 const root = createRoot(container);
-root.render(<Provider store={store}><App tab="home" /> </Provider>);
+root.render(<Provider store={store}><App /> </Provider>);
